@@ -18,7 +18,7 @@ namespace E_Learning.Core.Entities
 
         public string TwitterHandle { get; set; }
 
-        public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
+        public virtual ICollection<Course> Courses { get; set; } = new HashSet<Course>();
 
     }
 }

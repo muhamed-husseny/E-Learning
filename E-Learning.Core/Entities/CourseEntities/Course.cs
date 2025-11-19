@@ -10,8 +10,8 @@
 
 
         public int InstructorId { get; set; }
-        public Instructor Instructor { get; set; }
+        public virtual Instructor Instructor { get; set; }
 
-        public ICollection<Student> Students { get; set; } = new HashSet<Student>();
+        public virtual ICollection<Student> Students { get; set; } = new HashSet<Student>();
     }
 }
