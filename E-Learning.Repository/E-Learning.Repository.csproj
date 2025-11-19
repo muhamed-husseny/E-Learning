@@ -12,4 +12,12 @@
     <Folder Include="Data\DataSeed\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-Learning.Core\E-Learning.Core.csproj" />
+  </ItemGroup>
+
 </Project>
