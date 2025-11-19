@@ -6,3 +6,4 @@ global using System.Threading.Tasks;
 global using Microsoft.EntityFrameworkCore;
 global using E_Learning.Core.Entities;
 global using E_Learning.Core.Entities.CourseEntities;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
