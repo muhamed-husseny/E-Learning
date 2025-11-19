@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Learning.Core.Entities
+﻿namespace E_Learning.Core.Entities
 {
-    internal class Instructor
+    public class Instructor : BaseEntity
     {
+        public string Name { get; set; }
+
+        public string Bio { get; set; }
+
+        public int ExperienceYears { get; set; }
+
+        public string ProfilePictureUrl { get; set; }
+
+        public string ContactEmail { get; set; }
+
+        public string LinkedInProfile { get; set; }
+
+        public string TwitterHandle { get; set; }
+
     }
 }

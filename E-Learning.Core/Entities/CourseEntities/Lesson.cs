@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Learning.Core.Entities.CourseEntities
+﻿namespace E_Learning.Core.Entities.CourseEntities
 {
-    internal class Lesson
+    public class Lesson : BaseEntity
     {
+        public string Title { get; set; }
+
+        public string Content { get; set; }
     }
 }

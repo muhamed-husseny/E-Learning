@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Learning.Core.Entities.CourseEntities
+﻿namespace E_Learning.Core.Entities.CourseEntities
 {
-    internal class Content
+    public class Content : BaseEntity
     {
+         
+        public string File_Path { get; set; }
+
+        public string Content_Type { get; set; }
+
+        public string Title { get; set; }
+
     }
 }
