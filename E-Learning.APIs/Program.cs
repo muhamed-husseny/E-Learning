@@ -20,13 +20,35 @@ builder.Services.AddDbContext<StoreContext>(options =>
 
 
 var app = builder.Build();
+
 #region Update_DataBase and DataSeeding
 
-#endregion
+using var Scoped = app.Services.CreateScope();
+var Services = Scoped.ServiceProvider;
+var _Dbcontext = Services.GetRequiredService<StoreContext>();
+//var _IdentityDbcontext = Services.GetRequiredService<AppIdentityDbContext>();
+
+try
+{
+    await _Dbcontext.Database.MigrateAsync();
+
+    //await StoreContextSeed.SeedAsync(_Dbcontext);
+    // await _IdentityDbcontext.Database.MigrateAsync();
+    // var _UserManger = Services.GetRequiredService<UserManager<AppUser>>();
+    // await AppIdentityDbContextSeed.SeedUsersAsync(_UserManger);
+}
+catch (Exception ex)
+{
+
+    var logger = Services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred while migrating or seeding the database.");
+}
+
+    #endregion
 
 #region Configure Kestrel Middlewares
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -40,3 +62,4 @@ app.MapControllers();
 #endregion
 
 app.Run();
+
