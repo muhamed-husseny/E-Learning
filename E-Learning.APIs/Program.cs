@@ -12,6 +12,9 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+#region Update_DataBase and DataSeeding
+
+#endregion
 
 #region Configure Kestrel Middlewares
 // Configure the HTTP request pipeline.
