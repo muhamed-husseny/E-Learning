@@ -1,4 +1,6 @@
-﻿namespace E_Learning.Core.Entities
+﻿using E_Learning.Core.Entities.CourseEntities;
+
+namespace E_Learning.Core.Entities
 {
     public class Instructor : BaseEntity
     {
@@ -15,6 +17,8 @@
         public string LinkedInProfile { get; set; }
 
         public string TwitterHandle { get; set; }
+
+        public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
 
     }
 }

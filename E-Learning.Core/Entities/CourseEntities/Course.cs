@@ -7,5 +7,11 @@
         public string Description { get; set; }
 
         public virtual ICollection<Module> Modules { get; set; } = new HashSet<Module>();
+
+
+        public int InstructorId { get; set; }
+        public Instructor Instructor { get; set; }
+
+        public ICollection<Student> Students { get; set; } = new HashSet<Student>();
     }
 }
