@@ -23,14 +23,17 @@
         public async Task Add(T entity)
         {
            await _DbContext.Set<T>().AddAsync(entity);
+           _DbContext.SaveChanges();
         }
         public void Update(T entity)
         {
             _DbContext.Set<T>().Update(entity);
+            _DbContext.SaveChanges();
         }
         public void Delete(T entity)
         {
             _DbContext.Set<T>().Remove(entity);
+            _DbContext.SaveChanges();
         }
     }
 }
