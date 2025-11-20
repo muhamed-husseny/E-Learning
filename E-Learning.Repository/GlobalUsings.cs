@@ -7,3 +7,7 @@ global using Microsoft.EntityFrameworkCore;
 global using E_Learning.Core.Entities;
 global using E_Learning.Core.Entities.CourseEntities;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using E_Learning.Core.Repositories.Contract;
+global using E_Learning.Repository.Data;
+
+
