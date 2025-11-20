@@ -6,6 +6,7 @@
 
         public string Description { get; set; }
 
+        public decimal price { get; set; }
         public virtual ICollection<Module> Modules { get; set; } = new HashSet<Module>();
 
 

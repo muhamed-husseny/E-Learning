@@ -12,6 +12,9 @@
             builder.HasMany(C => C.Modules)
                 .WithOne(M => M.Course)
                 .HasForeignKey(M => M.CourseId);
+
+            builder.Property(C => C.price)
+            .HasColumnType("decimal(18,2)");
         }
     }
 }
