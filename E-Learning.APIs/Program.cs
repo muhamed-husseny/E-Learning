@@ -1,4 +1,5 @@
 #region Configure Service
+using E_Learning.APIs.Helper;
 using E_Learning.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<StoreContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies();
 });
+
+builder.Services.AddAutoMapper(typeof(MapperProfile));
 #endregion
 
 
