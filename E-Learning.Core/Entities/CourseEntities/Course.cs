@@ -9,7 +9,6 @@
         public decimal price { get; set; }
         public virtual ICollection<Module> Modules { get; set; } = new HashSet<Module>();
 
-
         public int InstructorId { get; set; }
         public virtual Instructor Instructor { get; set; }
 

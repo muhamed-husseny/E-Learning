@@ -4,4 +4,5 @@ global using System.Linq;
 global using System.Text;
 global using System.Threading.Tasks;
 global using E_Learning.Core.Entities;
+global using E_Learning.Core.Repositories.Contract;
 
