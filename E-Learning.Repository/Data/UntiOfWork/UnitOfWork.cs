@@ -1,30 +1,38 @@
-﻿namespace E_Learning.Repository.Data.UntiOfWork
+﻿using System.Collections;
+
+namespace E_Learning.Repository.Data.UntiOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly StoreContext _dbContext;
 
-        // private Dictionary<string, GenaricRepository<BaseEntity>> _repositories;
+        private Hashtable _repositories;
         public UnitOfWork(StoreContext dbContext)
         {
             _dbContext = dbContext;
+            _repositories = new Hashtable();
         }
         public IGenaricRepository<TEntity> Repository<TEntity>() where TEntity : BaseEntity
         {
-            throw new NotImplementedException();
+            var type = typeof(TEntity).Name;
+            if (!_repositories.ContainsKey(type))
+            {
+                var repository = new GenaricRepository<TEntity>(_dbContext) as GenaricRepository<BaseEntity>;
+
+                _repositories.Add(type, repository);
+            }
+            
+            return _repositories[type] as IGenaricRepository<TEntity>;
+
         }
 
-        public Task<int> CompleteAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> CompleteAsync()
+            => await _dbContext.SaveChangesAsync();
 
-     
-        public ValueTask DisposeAsync()
-        {
-            throw new NotImplementedException();
-        }
 
-        
+        public async ValueTask DisposeAsync()
+           => await _dbContext.DisposeAsync();
+
+
     }
 }
