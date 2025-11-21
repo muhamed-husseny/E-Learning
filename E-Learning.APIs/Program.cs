@@ -1,5 +1,6 @@
 #region Configure Service
 using E_Learning.APIs.Helper;
+using E_Learning.Core.UnitOfWork;
 using E_Learning.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<StoreContext>(options =>
 });
 
 builder.Services.AddAutoMapper(typeof(MapperProfile));
+
+builder.Services.AddScoped<IUnitOfWork, IUnitOfWork>();
 #endregion
 
 
